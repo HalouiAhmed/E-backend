@@ -1,0 +1,60 @@
+spring:
+  application:
+    name: EcomByThinkIT
+  datasource:
+    url: jdbc:mysql://localhost/ecom
+    username: root
+    password:
+  jpa:
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        driverClassName: com.mysql.cj.jdbc.Driver
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: email
+    password: password
+    sign:
+    location: None
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+security:
+  public:
+    endpoint:
+        /thinkIT/api/api-docs/**,
+        /thinkIT/api/swagger-ui/**,
+        /thinkIT/api/accounts/login
+  jwt:
+    secret: secret
+    expiration:
+      time: 2592000000
+  cors:
+    allowed:
+      origins: http://localhost:4200,http://127.0.0.1:4200
+      methods: HEAD,GET,POST,PUT,DELETE,PATCH
+      headers: Accept,Origin,Content-Type,Depth,User-Agent,If-Modified-Since,Cache-Control,Authorization,X-Req,X-File-Size,X-Requested-With,X-File-Name
+
+
+
+
+springdoc:
+  swagger-ui:
+    path: /thinkIT/api/swagger-ui
+  api-docs:
+    path: /thinkIT/api/api-docs
+
+server:
+  port: 9000
+
+default:
+  role: DEFAULT
